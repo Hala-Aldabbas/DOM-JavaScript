@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise #4: Input check for minimmum number of charecter should be 6 and password match in both input </title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        .err {
+            color: red;
+            font-size: 0.7em;
+        }
+    </style>
+    <script>
+function checkPass()
+{
+    var password1 = document.getElementById('password1');
+    var password2 = document.getElementById('password2');
+    var message = document.getElementById('pw1_check');
+    var message2 = document.getElementById('pw2_check');
+    if(password1.value.length > 5)
+    {
+        message.innerHTML = "character number ok!"
+    }
+    else
+    {
+       message.innerHTML = " you have to enter at least 6 digit!"
+        return;
+    }
+    
+    if(password1.value == password2.value)
+    {
+
+      message2.innerHTML = "the passwords match"
+    }
+	else
+    {
+       message2.innerHTML = " These passwords don't match"
+    }
+}
+    </script>
+</head>
+<body>
+
+<form name="pw">
+    <table>
+        <tr>
+            <td>Password (min 6 characters):</td>
+            <td><input type="password" name="password1" id="password1" size="10" placeholder="Password" onkeyup="checkPass();return false;"></td>
+            <td>
+                <div id="pw1_check" class="err"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>Repeat password:</td>
+            <td><input type="password" name="password2" id="password2" size="10" placeholder="Password" onkeyup="checkPass();return false;"></td>
+            <td>
+                <div id="pw2_check" class="err"></div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit" id="submitBtn"/>
+</form>
+
+</body>
+</html>
+
